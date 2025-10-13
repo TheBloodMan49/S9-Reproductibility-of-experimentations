@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  build-and-release:
+  associativity:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -31,4 +31,31 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: associativity/tmp/associativity_test.txt
+          tag_name: ${{ github.ref_name }}
+
+  investment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t investment ./investment
+
+      - name: Run investment container
+        run: |
+          mkdir -p ./investment/tmp
+          docker run --rm -v ${{ github.workspace }}/investment/tmp:/app/tmp investment
+
+      - name: Upload investment_test.txt as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: investment_test.txt
+          path: investment/tmp/investment_test.txt
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: investment/tmp/investment_test.txt
           tag_name: ${{ github.ref_name }}
