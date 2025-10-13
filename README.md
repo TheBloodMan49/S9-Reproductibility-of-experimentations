@@ -7,7 +7,7 @@ This repository contains :
 You will need to clone the repository to test the code.
 
 ```bash
-git clone <>
+git clone git@github.com:TheBloodMan49/S9-Reproductibility-of-experimentations.git
 ```
 
 # Associativity test
@@ -49,7 +49,7 @@ If you don't have Rust install it using [rustup](https://rustup.rs/).
 Then navigate to the cloned repository and run:
 
 ```bash
-cd investment_problem
+cd investment
 cargo run --release
 ```
 
@@ -62,6 +62,6 @@ Make sure you have [Docker](https://get.docker.com/) installed and running.
 Then navigate to the cloned repository and run:
 
 ```bash
-docker build -t investment_problem investment_problem
-docker run --rm investment_problem
+docker build -t investment investment
+docker run --rm investment
 ```
