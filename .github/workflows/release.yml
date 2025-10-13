@@ -29,6 +29,7 @@ jobs:
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: associativity/tmp/associativity_test.txt
           tag_name: ${{ github.ref_name }}
