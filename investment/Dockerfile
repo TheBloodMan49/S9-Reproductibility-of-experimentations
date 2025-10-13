@@ -7,4 +7,5 @@ RUN cargo build --release
 FROM alpine:3.22
 WORKDIR /app
 COPY --from=build /app/target/release/test .
-CMD ["./test"]
+WORKDIR /app/tmp
+CMD ["../test"]

@@ -1,0 +1,4 @@
+With e value from core::f64::consts::E :
+After 50 years you can retrieve: -4396803930182068517325088235103664583272782888960.00
+With e value approximated to 4 decimals :
+After 50 years you can retrieve: 552670940221847373703019979032116299671365252697311338823680.00

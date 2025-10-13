@@ -89,7 +89,7 @@ Then navigate to the cloned repository and run:
 
 ```bash
 docker build -t investment investment
-docker run --rm investment
+docker run --rm -v .:/app/tmp investment
 ```
 
 ### Using Nix
@@ -102,4 +102,14 @@ Navigate to the cloned repository and run:
 nix-shell
 cd investment
 cargo run --release
+```
+
+### Using Nix Flakes
+
+Run :
+
+```bash
+cd investment
+nix --extra-experimental-features nix-command --extra-experimental-features flakes build
+./result/bin/test
 ```
