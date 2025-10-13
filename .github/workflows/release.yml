@@ -2,9 +2,8 @@ name: Associativity Docker & Release
 
 on:
   push:
-    branches:
-      - main
-      - master
+    tags:
+      - '*'
 
 jobs:
   build-and-release:
