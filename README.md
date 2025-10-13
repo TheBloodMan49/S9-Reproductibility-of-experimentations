@@ -38,6 +38,18 @@ docker build -t associativity associativity
 docker run --rm -it -v .:/app/tmp associativity
 ```
 
+### Using Nix
+
+If you have [Nix](https://nixos.org/download.html) installed, you can use it to build and run the code.
+
+Navigate to the cloned repository and run:
+
+```bash
+nix-shell
+cd associativity
+cargo run --release
+```
+
 # Investment problem
 
 ## Build and Run
@@ -64,4 +76,16 @@ Then navigate to the cloned repository and run:
 ```bash
 docker build -t investment investment
 docker run --rm investment
+```
+
+### Using Nix
+
+If you have [Nix](https://nixos.org/download.html) installed, you can use it to build and run the code.
+
+Navigate to the cloned repository and run:
+
+```bash
+nix-shell
+cd investment
+cargo run --release
 ```
