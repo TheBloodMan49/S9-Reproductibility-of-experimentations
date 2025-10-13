@@ -1,5 +1,5 @@
 *.py
-Cargo.lock
-target/
+**/target/
+**/result
 
 associativity/associativity_test.txt
