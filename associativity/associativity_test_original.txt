@@ -1,0 +1,24 @@
+Testing float64 from -1000000 to 1000000 with 1000000 samples
+Failure rate: 6.940500%
+
+Testing float64 from -1000 to 1000 with 1000000 samples
+Failure rate: 6.942600%
+
+Testing float64 from 0 to 1000000 with 1000000 samples
+Failure rate: 25.546000%
+
+Testing float64 from 0 to 1000 with 1000000 samples
+Failure rate: 25.496400%
+
+Testing float64 from -1 to 1 with 1000000 samples
+Failure rate: 9.519000%
+
+Testing float64 from 0 to 1 with 1000000 samples
+Failure rate: 21.015000%
+
+Testing float32 from -1 to 1 with 1000000 samples
+Failure rate: 9.482500%
+
+Testing float32 from 0 to 1 with 1000000 samples
+Failure rate: 20.934299%
+
