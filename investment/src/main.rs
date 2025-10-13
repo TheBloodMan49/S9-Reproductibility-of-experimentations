@@ -11,8 +11,8 @@ use std::fs;
 use std::io::Write;
 
 fn main() {
-  fs::write("./banking_test.txt", "").expect("Unable to write file");
-  let mut file = fs::OpenOptions::new().append(true).open("./banking_test.txt").expect("Unable to open file");
+  fs::write("./investment_test.txt", "").expect("Unable to write file");
+  let mut file = fs::OpenOptions::new().append(true).open("./investment_test.txt").expect("Unable to open file");
 
 
   let mut investment: f64 = E;
