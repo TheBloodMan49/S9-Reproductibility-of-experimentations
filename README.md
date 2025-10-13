@@ -54,6 +54,16 @@ cd associativity
 cargo run --release
 ```
 
+### Using Nix Flakes
+
+Run :
+
+```bash
+cd associativity
+nix --extra-experimental-features nix-command --extra-experimental-features flakes build
+./result/bin/test
+```
+
 # Investment problem
 
 ## Build and Run
