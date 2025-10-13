@@ -12,6 +12,10 @@ git clone git@github.com:TheBloodMan49/S9-Reproductibility-of-experimentations.g
 
 # Associativity test
 
+## Experimentation results
+
+You can find the results of the experimentations in the file [associativity_test](associativity/associativity_test_original.txt) or in the [releases](https://github.com/TheBloodMan49/S9-Reproductibility-of-experimentations/releases) section of this repository.
+
 ## Build and Run
 
 ### Using your local Rust installation
