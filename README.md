@@ -35,7 +35,7 @@ Then navigate to the cloned repository and run:
 
 ```bash
 docker build -t associativity associativity
-docker run --rm associativity
+docker run --rm -it -v .:/app/tmp associativity
 ```
 
 # Investment problem
