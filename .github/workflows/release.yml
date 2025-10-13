@@ -31,3 +31,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: associativity/tmp/associativity_test.txt
+          tag_name: ${{ github.ref_name }}
