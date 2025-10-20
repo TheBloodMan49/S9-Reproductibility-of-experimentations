@@ -40,7 +40,7 @@ cargo run --release
 You cann also specify parameters such as lower bound, upper bound, number of samples, seed and float type. For example :
 
 ```bash
-cargo run --release -- --range-min 0 --range-max 1000000 --samples 1000000 --seed 42 --float-type 64
+cargo run --release -- --range-min 0 --range-max 1000000 --samples 1000000 --seed 42 --float-type 64 --csv
 ```
 
 The complete list of parameters can be found using :
