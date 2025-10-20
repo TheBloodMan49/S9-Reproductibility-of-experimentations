@@ -1,0 +1,19 @@
+import random
+
+def check_property(repetitions):
+    correct_count = 0
+    for _ in range(repetitions):
+        x = random.uniform({{ min_value }}, {{ max_value }})
+        y = random.uniform({{ min_value }}, {{ max_value }})
+        z = random.uniform({{ min_value }}, {{ max_value }})
+
+        result1 = {{ operation1 }}
+        result2 = {{ operation2 }}
+
+        if abs(result1 - result2) <= {{ tolerance }}:
+            correct_count += 1
+
+    print(f"Out of {repetitions} repetitions, the property held {correct_count} times ({correct_count / repetitions * 100}%).")
+
+repetitions = {{ repetitions }}
+check_property(repetitions)
