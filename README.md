@@ -16,6 +16,13 @@ git clone git@github.com:TheBloodMan49/S9-Reproductibility-of-experimentations.g
 
 You can find the results of the experimentations in the file [associativity_test](associativity/associativity_test_original.txt) or in the [releases](https://github.com/TheBloodMan49/S9-Reproductibility-of-experimentations/releases) section of this repository.
 
+## Replicability
+
+The results of the experimentations can vary depending on :
+- The Random Number Generator (RNG) used
+- Floating-point implementation of the target architecture
+- Compiler optimizations
+
 ## Build and Run
 
 ### Using your local Rust installation
