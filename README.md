@@ -99,6 +99,10 @@ cd associativity/templating
 python3 run_templating.py
 ```
 
+## Analyze
+
+To understand the results of the experimentations, you can use the Jupyter notebook located in the [analyze](analyze) folder. It contains code to load the CSV results and analyze them using pandas and matplotlib.
+
 # Investment problem
 
 ## Build and Run
