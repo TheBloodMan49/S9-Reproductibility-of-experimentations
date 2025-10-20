@@ -19,6 +19,7 @@ You can find the results of the experimentations in the file [associativity_test
 ## Replicability
 
 The results of the experimentations can vary depending on :
+
 - The Random Number Generator (RNG) used
 - Floating-point implementation of the target architecture
 - Compiler optimizations
@@ -29,11 +30,23 @@ The results of the experimentations can vary depending on :
 
 If you don't have Rust install it using [rustup](https://rustup.rs/).
 
-Then navigate to the cloned repository and run:
+Then navigate to the cloned repository and run with default parameters :
 
 ```bash
 cd associativity
 cargo run --release
+```
+
+You cann also specify parameters such as lower bound, upper bound, number of samples, seed and float type. For example :
+
+```bash
+cargo run --release -- --range-min 0 --range-max 1000000 --samples 1000000 --seed 42 --float-type 64
+```
+
+The complete list of parameters can be found using :
+
+```bash
+cargo run --release -- --help
 ```
 
 ### Using Docker
@@ -47,6 +60,12 @@ Then navigate to the cloned repository and run:
 ```bash
 docker build -t associativity associativity
 docker run --rm -it -v .:/app/tmp associativity
+```
+
+You can of course still specify parameters as explained in the previous section. For example :
+
+```bash
+docker run --rm -it -v .:/app/tmp associativity --range-min 0 --range-max 1000000 --samples 1000000 --seed 42 --float-type 32
 ```
 
 ### Using Nix

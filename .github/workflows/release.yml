@@ -18,7 +18,14 @@ jobs:
       - name: Run associativity container
         run: |
           mkdir -p ./associativity/tmp
-          docker run --rm -v ${{ github.workspace }}/associativity/tmp:/app/tmp associativity
+          docker run --rm -v ${{ github.workspace }}/associativity/tmp:/app/tmp associativity -l 1000000 -u 1000000 -n 1000000 -s 1
+          docker run --rm -v ${{ github.workspace }}/associativity/tmp:/app/tmp associativity -l -1000 -u 1000 -n 1000000 -s 1
+          docker run --rm -v ${{ github.workspace }}/associativity/tmp:/app/tmp associativity -l 0 -u 1000000 -n 1000000 -s 1
+          docker run --rm -v ${{ github.workspace }}/associativity/tmp:/app/tmp associativity -l 0 -u 1000 -n 1000000 -s 1
+          docker run --rm -v ${{ github.workspace }}/associativity/tmp:/app/tmp associativity -l -1 -u 1 -n 1000000 -s 1
+          docker run --rm -v ${{ github.workspace }}/associativity/tmp:/app/tmp associativity -l 0 -u 1 -n 1000000 -s 1
+          docker run --rm -v ${{ github.workspace }}/associativity/tmp:/app/tmp associativity -l -1 -u 1 -n 1000000 -s 1 -t 32
+          docker run --rm -v ${{ github.workspace }}/associativity/tmp:/app/tmp associativity -l 0 -u 1 -n 1000000 -s 1 -t 32
 
       - name: Upload associativity_test.txt as artifact
         uses: actions/upload-artifact@v4
