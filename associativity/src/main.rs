@@ -47,7 +47,7 @@ fn associativity_64(a: f64, b: f64, c: f64) -> bool {
     (a + b) + c == a + (b + c)
 }
 
-fn test_associativity_32(nb: usize, range_min: f32, range_max: f32, file: &mut File, rng: &mut impl Rng, csv: bool) {
+fn test_associativity_32(nb: usize, range_min: f32, range_max: f32, file: &mut File, rng: &mut impl Rng, csv: bool, seed: Option<u64>) {
     let mut bad_cpt = 0_usize;
     let bar = ProgressBar::new(nb as u64);
     println!("Testing float32 from {range_min} to {range_max} with {nb} samples");
@@ -55,7 +55,7 @@ fn test_associativity_32(nb: usize, range_min: f32, range_max: f32, file: &mut F
     if csv {
         let prepend_header = file.metadata().map(|m| m.len()).unwrap_or(0) == 0;
         if prepend_header {
-            writeln!(file, "type,range_min,range_max,samples,failure_rate")
+            writeln!(file, "type,range_min,range_max,samples,seed,failure_rate")
                 .expect("Unable to write CSV header");
         }
     } else {
@@ -82,8 +82,8 @@ fn test_associativity_32(nb: usize, range_min: f32, range_max: f32, file: &mut F
     if csv {
         writeln!(
             file,
-            "f32,{},{},{},{:.6}%",
-            range_min, range_max, nb, failure_rate
+            "f32,{},{},{},{},{:.6}%",
+            range_min, range_max, nb, seed.unwrap_or(0), failure_rate
         )
         .expect("Unable to write CSV row");
     } else {
@@ -92,7 +92,7 @@ fn test_associativity_32(nb: usize, range_min: f32, range_max: f32, file: &mut F
     }
 }
 
-fn test_associativity_64(nb: usize, range_min: f64, range_max: f64, file: &mut File, rng: &mut impl Rng, csv: bool) {
+fn test_associativity_64(nb: usize, range_min: f64, range_max: f64, file: &mut File, rng: &mut impl Rng, csv: bool, seed: Option<u64>) {
     let mut bad_cpt = 0_usize;
     let bar = ProgressBar::new(nb as u64);
     println!("Testing float64 from {range_min} to {range_max} with {nb} samples");
@@ -100,7 +100,7 @@ fn test_associativity_64(nb: usize, range_min: f64, range_max: f64, file: &mut F
     if csv {
         let prepend_header = file.metadata().map(|m| m.len()).unwrap_or(0) == 0;
         if prepend_header {
-            writeln!(file, "type,range_min,range_max,samples,failure_rate")
+            writeln!(file, "type,range_min,range_max,samples,seed,failure_rate")
                 .expect("Unable to write CSV header");
         }
     } else {
@@ -127,8 +127,8 @@ fn test_associativity_64(nb: usize, range_min: f64, range_max: f64, file: &mut F
     if csv {
         writeln!(
             file,
-            "f64,{},{},{},{:.6}%",
-            range_min, range_max, nb, failure_rate
+            "f64,{},{},{},{},{:.6}%",
+            range_min, range_max, nb, seed.unwrap_or(0), failure_rate
         )
         .expect("Unable to write CSV row");
     } else {
@@ -166,6 +166,7 @@ fn main() {
             &mut file,
             &mut rng,
             args.csv,
+            args.seed,
         ),
         64 => test_associativity_64(
             args.samples,
@@ -174,6 +175,7 @@ fn main() {
             &mut file,
             &mut rng,
             args.csv,
+            args.seed,
         ),
         _ => eprintln!("Unsupported float type: {}", args.float_type)
     }
