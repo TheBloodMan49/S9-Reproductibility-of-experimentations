@@ -71,6 +71,15 @@ nix --extra-experimental-features nix-command --extra-experimental-features flak
 ./result/bin/test
 ```
 
+### Templating
+
+There is a Python templating script to test different versions of the associativity test with different variables. You can edit the `run_templating.py` file to change the parameters of the test and run it using :
+
+```bash
+cd associativity/templating
+python3 run_templating.py
+```
+
 # Investment problem
 
 ## Build and Run
