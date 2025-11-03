@@ -152,3 +152,12 @@ cd investment
 nix --extra-experimental-features nix-command --extra-experimental-features flakes build
 ./result/bin/test
 ```
+
+### Templating
+
+There is a Python templating script to test different versions of the investment test with different variables. You can edit the `run_templating.py` file to change the parameters of the test and run it using :
+
+```bash
+cd investment/templating
+python3 run_templating.py
+```
