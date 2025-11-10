@@ -1,0 +1,3 @@
+[submodule "many-analysts"]
+	path = many-analysts
+	url = git@github.com:KwikKill/many-analysts-repro.git
